@@ -1,6 +1,14 @@
 package src;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 public class Main {
+
+    String NombreArchivo;
+
+
+
+
 
 
 
@@ -26,20 +34,28 @@ public class Main {
 
         public void main(String args[]) {
 
-            Scanner teclado=new Scanner(System.in);
+            try{
 
-            Usuarios usuario= new Usuarios(usur1,usur2,usur3);
-            Contraseña contraseña= new Contraseña(contra1,contra2,contra3);
+                String filePath= "registro.txt";
+                FileWriter fw=new FileWriter(filePath, true);
+                String lineToAppend ="";
+                fw.write(lineToAppend);
+
+
+            Scanner teclado = new Scanner(System.in);
+
+            Usuarios usuario = new Usuarios(usur1, usur2, usur3);
+            Contraseña contraseña = new Contraseña(contra1, contra2, contra3);
 
             System.out.println("Ingrese su nombre de usuario: ");
             String user = teclado.next();
 
-            if (user==usur1){
+            if (user == usur1) {
 
                 System.out.println("Ingrese su contraseña: ");
                 int contra = teclado.nextInt();
 
-                if (contra==contra1){
+                if (contra == contra1) {
 
                     System.out.println("1.- Retirar");
                     System.out.println("2.- Depositar");
@@ -48,12 +64,15 @@ public class Main {
                     System.out.printf("Seleccione una opcion:");
                     int op = teclado.nextInt();
 
-                    switch (op){
+                    switch (op) {
                         case 1:
                             System.out.println("Cuanto desea retirar? ");
                             double retiro = teclado.nextDouble();
 
-                            System.out.println("Su deposito fue hecho con exito");
+                            System.out.println("Su retiro fue hecho con exito");
+                            fw.write("Se retiro dinero de la cuenta 1: "+ retiro);
+
+
 
                             break;
                         case 2:
@@ -61,6 +80,7 @@ public class Main {
                             double deposito = teclado.nextDouble();
 
                             System.out.println("Su deposito fue hecho con exito");
+                            fw.write("Se deposito dinero en la cuenta 1: "+deposito);
                             break;
                         case 3:
                             break;
@@ -71,18 +91,18 @@ public class Main {
                     }
 
 
-                }else {
+                } else {
                     System.out.printf("Ingreso mal de contraseña, verifique el archivo readme");
                 }
 
 
-            }else if (user==usur2){
+            } else if (user == usur2) {
 
 
                 System.out.println("Ingrese su contraseña: ");
                 int contra = teclado.nextInt();
 
-                if (contra==contra2){
+                if (contra == contra2) {
 
                     System.out.println("1.- Retirar");
                     System.out.println("2.- Depositar");
@@ -91,12 +111,13 @@ public class Main {
                     System.out.printf("Seleccione una opcion:");
                     int op = teclado.nextInt();
 
-                    switch (op){
+                    switch (op) {
                         case 1:
                             System.out.println("Cuanto desea retirar? ");
                             double retiro = teclado.nextDouble();
 
-                            System.out.println("Su deposito fue hecho con exito");
+                            System.out.println("Su retiro fue hecho con exito");
+                            fw.write("Se retiro dinero de la cuenta 2: "+ retiro);
 
                             break;
                         case 2:
@@ -104,6 +125,7 @@ public class Main {
                             double deposito = teclado.nextDouble();
 
                             System.out.println("Su deposito fue hecho con exito");
+                            fw.write("Se deposito dinero en la cuenta 2: "+deposito);
                             break;
                         case 3:
                             break;
@@ -114,21 +136,17 @@ public class Main {
                     }
 
 
-                }else {
+                } else {
                     System.out.printf("Ingreso mal de contraseña, verifique el archivo readme");
                 }
 
 
-
-
-
-
-            }else if (user==usur3){
+            } else if (user == usur3) {
 
                 System.out.println("Ingrese su contraseña: ");
                 int contra = teclado.nextInt();
 
-                if (contra==contra1){
+                if (contra == contra3) {
 
                     System.out.println("1.- Retirar");
                     System.out.println("2.- Depositar");
@@ -137,12 +155,13 @@ public class Main {
                     System.out.printf("Seleccione una opcion:");
                     int op = teclado.nextInt();
 
-                    switch (op){
+                    switch (op) {
                         case 1:
                             System.out.println("Cuanto desea retirar? ");
                             double retiro = teclado.nextDouble();
 
-                            System.out.println("Su deposito fue hecho con exito");
+                            System.out.println("Su retiro fue hecho con exito");
+                            fw.write("Se retiro dinero de la cuenta 3: "+ retiro);
 
                             break;
                         case 2:
@@ -150,6 +169,7 @@ public class Main {
                             double deposito = teclado.nextDouble();
 
                             System.out.println("Su deposito fue hecho con exito");
+                            fw.write("Se deposito dinero en la cuenta 3: "+deposito);
                             break;
                         case 3:
                             break;
@@ -160,14 +180,17 @@ public class Main {
                     }
 
 
-                }else {
+                } else {
                     System.out.printf("Ingreso mal de contraseña, verifique el archivo readme");
                 }
 
 
-
-            }else{
+            } else {
                 System.out.println("Ingreso mal el usuario, verifique el archivo readme");
+            }
+
+        } catch (IOException e) {
+                throw new RuntimeException(e);
             }
 
 
