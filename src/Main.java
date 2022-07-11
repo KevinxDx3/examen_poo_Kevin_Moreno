@@ -2,15 +2,9 @@ package src;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
-public class Main {
+public class Main{
 
     String NombreArchivo;
-
-
-
-
-
-
 
         String user;
         static String usur1="Kevin";
@@ -33,6 +27,10 @@ public class Main {
 
 
         public void main(String args[]) {
+
+
+
+
 
             try{
 
